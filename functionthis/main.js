@@ -21,10 +21,10 @@ console.log(person3.isOlderThanEighteen(), person3);
 const methodReferenceOfClass = () => person1.isOlderThanEighteen();
 console.log(methodReferenceOfClass(), person1);
 
-function isOlderThanEighteen() {
+function methodReference() {
     return person1.isOlderThanEighteen();
 }
-console.log(isOlderThanEighteen(), person1);
+console.log(methodReference(), person1);
 
 const myClass = {
     name: 'MyClass',
