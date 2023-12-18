@@ -1,3 +1,22 @@
+interface ToDo {
+    title: string;
+    description: string;
+}
+
+const updateToDo = (todo: ToDo, fieldsToUpdate: Partial<ToDo>) => {
+    return { ...todo, ...fieldsToUpdate };
+}
+
+
+const initialToDo: ToDo = {
+    title: 'learn TypeScript',
+    description: 'study hard'
+};
+
+const updatedDto = updateToDo(initialToDo, {title: 'Learn more TypeScript'});
+console.log(updatedDto);
+
+
 type status = 'FINAL' | 'CONSTRUCTION' | 'TEST';
 
 let myStatus: status = 'FINAL';
