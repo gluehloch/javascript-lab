@@ -31,3 +31,6 @@ console.log(a);
 function add(a: number, b: number) {
     return a + b;
 }
+
+type stringMap = Record<string, string>;
+const object: stringMap = {'a': 'b', 'c': 'd'};
