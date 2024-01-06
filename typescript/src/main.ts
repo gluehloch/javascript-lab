@@ -3,6 +3,49 @@ interface ToDo {
     description: string;
 }
 
+interface Supplier {
+    (): string;
+}
+
+class DefaultToDo implements ToDo {
+    title = 'Title';
+    description = 'Description';
+    supplier: Supplier;
+
+    constructor(_supplier: Supplier) {
+        this.title = 'default';
+        this.description = 'default';
+        this.supplier = _supplier;
+    }
+
+    print() {
+        console.log(this.supplier() + ' ' + this.title + ' ' + this.description);
+    }
+}
+
+class Xxx {
+    message = 'This is a supplier message.';
+    todo: DefaultToDo;
+
+    constructor(private supplier2: Supplier) {
+        const supplier = () => {
+            return this.message;
+        }
+        this.todo = new DefaultToDo(supplier);
+    }
+
+    print() {
+        this.todo.print();
+        console.log(this.todo.supplier() + ' ' + this.supplier2());
+    }
+}
+
+const message = 'This is another supplier message from outer scope.';
+
+const xxx = new Xxx(() => {return message});
+xxx.print();
+
+
 const updateToDo = (todo: ToDo, fieldsToUpdate: Partial<ToDo>) => {
     return { ...todo, ...fieldsToUpdate };
 }
