@@ -16,8 +16,6 @@ console.log(person4.isUnderEighteen(), person4);
 console.log(person3.isUnderEighteen(), { person3 });
 console.log(person3.isOlderThanEighteen(), person3);
 
-// Does not work: 'this' in class Person will be lost:
-// const methodReferenceOfClass = person1.isOlderThanEighteen
 const methodReferenceOfClass = () => person1.isOlderThanEighteen();
 console.log(methodReferenceOfClass(), person1);
 
