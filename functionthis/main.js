@@ -1,6 +1,6 @@
 "use strict";
 
-import { Person } from './person.js';
+import { Person, AndreWinklerPerson as AndreWinkler } from './person.js';
 
 const person1 = new Person('Doe', 'John', 25);
 const person2 = new Person('Doe', 'Jane', 22);
@@ -12,15 +12,15 @@ console.log(person2.print());
 console.log(person3.print());
 console.log(person4.print());
 
-console.log(person4.isUnderEighteen(), person4);
-console.log(person3.isUnderEighteen(), { person3 });
-console.log(person3.isOlderThanEighteen(), person3);
+console.log(person4.isUnderEighteenArrowFunction(), person4);
+console.log(person3.isUnderEighteenArrowFunction(), { person3 });
+console.log(person3.isOlderThanEighteenRegularFunction(), person3);
 
-const methodReferenceOfClass = () => person1.isOlderThanEighteen();
+const methodReferenceOfClass = () => person1.isOlderThanEighteenRegularFunction();
 console.log(methodReferenceOfClass(), person1);
 
 function methodReference() {
-    return person1.isOlderThanEighteen();
+    return person1.isOlderThanEighteenRegularFunction();
 }
 console.log(methodReference(), person1);
 
@@ -38,3 +38,5 @@ const myClass = {
 };
 
 console.log(myClass.sayHello());
+
+AndreWinkler.printAsArrowFunction();
