@@ -1,6 +1,6 @@
 "use strict";
 
-import { Person, AndreWinklerPerson as AndreWinkler } from './person.js';
+import { Person, AndreWinklerPerson as andreWinkler, AnotherPerson } from './person.js';
 
 const person1 = new Person('Doe', 'John', 25);
 const person2 = new Person('Doe', 'Jane', 22);
@@ -39,4 +39,10 @@ const myClass = {
 
 console.log(myClass.sayHello());
 
-AndreWinkler.printAsArrowFunction();
+// Throws a TypeError: Cannot read property 'name' of undefined
+// andreWinkler.printAsArrowFunction();
+
+const anotherPerson = new AnotherPerson();
+console.log(anotherPerson.print());
+console.log('anotherPeson is older than eighteen?', anotherPerson.isOlderThanEighteenRegularFunction());
+console.log('anotherPerson is under than eighteen?', anotherPerson.isUnderEighteenArrowFunction());
