@@ -35,9 +35,16 @@ const myClass = {
         return 'Hello ' + this.name;
     }
     */
+    printThis: function(callbackFunction) {
+        // callbackFunction.call(this);
+        const newBindedFunction = callbackFunction.bind(this);
+        newBindedFunction();
+    }
 };
 
 console.log(myClass.sayHello());
+console.log(myClass.printThis(() => console.log('arrow function this: ', this))); // function binding mit call does not work here!
+console.log(myClass.printThis(function() { console.log('regular function this: ', this) }));
 
 // Throws a TypeError: Cannot read property 'name' of undefined
 // andreWinkler.printAsArrowFunction();
